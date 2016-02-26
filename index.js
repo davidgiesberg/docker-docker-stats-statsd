@@ -36,7 +36,7 @@ function update(chunk, enc, callback) {
   var name = chunk.name;
   var info = {
     cpu: {
-      cpu_percent: chunk.stats.cpu_stats.cpu_usage.percent,
+      cpu_percent: chunk.stats.cpu_stats.cpu_usage.cpu_percent,
     },
     memory: {
       usage: chunk.stats.memory_stats.usage,
@@ -46,6 +46,10 @@ function update(chunk, enc, callback) {
       total_pgpgin: chunk.stats.memory_stats.stats.total_pgpgin,
       total_pgpgout: chunk.stats.memory_stats.stats.total_pgpgout,
       total_pgfault: chunk.stats.memory_stats.stats.total_pgfault
+    },
+    network:{
+      rx_bytes: chunk.stats.networks.eth0.rx_bytes,
+      tx_bytes: chunk.stats.networks.eth0.tx_bytes
     }
   };
 
